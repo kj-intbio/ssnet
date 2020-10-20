@@ -22,10 +22,16 @@ public class Ssnet {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException{
-        String bioGridFile = "inputs/BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-3.5.186.tab2.txt";
-        double dvalue = 1.0;
-        String species = "559292";//9606 = human, 559292 (V72)/4932 = yeast, 10090 = mouse
-        int htp_threshold = 100;
+        
+        if (args.length < 4) {
+            System.out.println("Usage: ssnet <infile> <D value> <taxon ID> <HTP threshold>");
+            System.exit(1);
+        }
+        
+        String bioGridFile = args[0];
+        double dvalue = Double.parseDouble(args[1]);
+        String species = args[2];//9606 = human, 559292 (V72)/4932 = yeast, 10090 = mouse
+        int htp_threshold = Integer.parseInt(args[3]);
         
         System.out.println("Extracting datasets from BioGRID...");
         BioGRIDParser bioGRIDParser = new BioGRIDParser();
