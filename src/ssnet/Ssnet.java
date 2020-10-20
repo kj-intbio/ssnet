@@ -13,8 +13,8 @@ import java.io.IOException;
 import lls_score.*;
 
 /**
- *
- * @author CWMS3
+ * Main network build 
+ * @author Katherine James
  */
 public class Ssnet {
 
