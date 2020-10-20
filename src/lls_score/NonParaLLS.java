@@ -5,7 +5,7 @@
  */
 package lls_score;
 
-import bioGrid.*;
+import biogrid.*;
 import gold_standard.GoldStandard;
 import java.util.Set;
 /*----------------------------------------------------------------*\
@@ -33,7 +33,7 @@ public class NonParaLLS {
         int truePosGs = gsPairs.size();//number pos pairs
         int possiblePairsGs = (totalGenesGs * (totalGenesGs - 1)) / 2;
         int trueNegGs = gs.numberOfNegatives();//number negative pairs
-        int falsePosData = pairsNotInGoldStandard(kegg, data);//false positives
+        int falsePosData = pairsNotInGoldStandard(gs, data);//false positives
 
         //calculate lls
         double PLE = 1.0 * truePosData / data.size();

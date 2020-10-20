@@ -5,9 +5,9 @@
  */
 package lls_score;
 
-import bioGrid.*;
+import biogrid.*;
 import gold_standard.GoldStandard;
-import relnet.DataSetScorer;
+import ssnet.DataSetScorer;
 
 import java.io.*;
 import java.util.*;
@@ -19,25 +19,25 @@ import java.util.*;
 |																	   |
 |                    Author: Katherine James						   |
 |                      Commenced: 28/01/08                             |
-|                    Last Edited: 28/04/09                             |
+|                    Last Edited: 15/07/20                             |
 \*--------------------------------------------------------------------*/
 public class LlsScore implements DataSetScorer {
 
-    private GoldStandard kegg;
+    private GoldStandard gs;
 
     public LlsScore() {
     }
 
-    public LlsScore(GoldStandard kegg) {
-        this.kegg = kegg;
+    public LlsScore(GoldStandard gs) {
+        this.gs = gs;
     }
 
-    public GoldStandard getKegg() {
-        return kegg;
+    public GoldStandard getGs() {
+        return gs;
     }
 
-    public void setKegg(GoldStandard kegg) {
-        this.kegg = kegg;
+    public void setGs(GoldStandard gs) {
+        this.gs = gs;
     }
 
     public Map<String, Double> scoredDataSet(BioGRID bio) {
@@ -48,7 +48,7 @@ public class LlsScore implements DataSetScorer {
         for (String dataSet : bio.getBioGRID().keySet()) {//iterate through the datasets
 
             System.out.println("calculating for " + dataSet + "...");
-            Double lls = new NonParaLLS().logScore(kegg, bio.getBioGRID().get(dataSet));//score
+            Double lls = new NonParaLLS().logScore(gs, bio.getBioGRID().get(dataSet));//score
 
             if (lls > 0 && !lls.isNaN())
             {
