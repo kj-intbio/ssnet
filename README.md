@@ -16,9 +16,13 @@ Datatsets are split by PubMED identifier and those with number of interactions b
 
 <img src="https://render.githubusercontent.com/render/math?math=lls^L(E) = \ln  \left(\frac{P(L|E) /\neg P(L|E)} {P(L) /\neg P(L)} \right)">
 
-where, P(L|E) and <img src="https://render.githubusercontent.com/render/math?math=\neg P(L|E)"> represent the frequencies of linkages L observed in a dataset E between genes that are linked and not not linked in the gold standard, respectively, and, P(L) and /\neg P(L) represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
+where, <img src="https://render.githubusercontent.com/render/math?math=P(L|E)"> and <img src="https://render.githubusercontent.com/render/math?math=\neg P(L|E)"> represent the frequencies of linkages L observed in a dataset E between genes that are linked and not not linked in the gold standard, respectively, and, <img src="https://render.githubusercontent.com/render/math?math=P(L)"> and <img src="https://render.githubusercontent.com/render/math?math=\neg P(L)"> represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
 
 Dataset scores were then integrated using the Lee method using the D value chosen:
+
+ <img src="https://render.githubusercontent.com/render/math?math=WS = \sum_{i=1}^n \frac {L_i}{D^{(i-1)}}">
+ 
+ where <img src="https://render.githubusercontent.com/render/math?math=$L_{1}$"> is the highest confidence score and <img src="https://render.githubusercontent.com/render/math?math=$L_{n}$"> the lowest confidence score of a set of <img src="https://render.githubusercontent.com/render/math?math=$n$"> datasets.
 
 ![Workflow](/images/integration_workflow.png)
 
