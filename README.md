@@ -12,13 +12,13 @@ SSnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/do
 
 **Integration methodology**
 
-Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues \cite{Lee2004}, that calculates a log-likelihood score for each dataset:
+Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues^1, that calculates a log-likelihood score for each dataset:
 
 <img src="https://render.githubusercontent.com/render/math?math=lls^L(E) = \ln  \left(\frac{P(L|E) /\neg P(L|E)} {P(L) /\neg P(L)} \right)">
 
-where, \begin{large}$P(L|E)$\end{large} and \begin{large}$\neg P(L|E)$\end{large} represent the frequencies of linkages \begin{large}$L$\end{large} observed in a dataset \begin{large}$E$\end{large} between genes that are linked and not not linked in the gold standard, respectively, and, \begin{large}$P(L)$\end{large} and \begin{large}$\neg P(L)$\end{large} represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
+where, P(L|E) and /\neg P(L|E) represent the frequencies of linkages L observed in a dataset E between genes that are linked and not not linked in the gold standard, respectively, and, P(L) and /\neg P(L) represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
 
-Dataset scores were then integrated using the Lee method \cite{Lee2004} with a \textit{D}-value of 1.0:
+Dataset scores were then integrated using the Lee method using the D value chosen:
 
 ![Workflow](/images/integration_workflow.png)
 
