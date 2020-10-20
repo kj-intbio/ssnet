@@ -6,7 +6,7 @@ ssnet takes a BioGRID file of functional interaction data for a species and prod
 Aoesha Alsobhe, James Skelton, Matthew Pocock, Simon J. Cockell, Anil Wipat1 and Katherine James (2020) Integration of probabilistic functional integrated networks from a single database source. 
 
 
-Usage: ``` ssnet inputfile d-value taxid htp_threshold ```
+Usage: ``` java -jar "ssnet.jar" inputfile d-value taxid htp_threshold ```
 
 SSnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/doku.php/downloads)
 
