@@ -14,15 +14,15 @@ import java.util.*;
 public class BioGRID {
     
     private Map<String, Set<Pair>> bio_htp;
-    private Map<String, Set<Pair>> bio_ltp;
+    private Map<String, Set<Pair>> bio;
     private int version;
     private Set<String> allGenes;
     private Set<Pair> allPairs;
     private List<BioGenePair> goldstandard;
 
-    public BioGRID(Map<String, Set<Pair>> bio_htp, Map<String, Set<Pair>> bio_ltp, int version, Set<String> genes, Set<Pair> pairs, List<BioGenePair> goldstandard) {
+    public BioGRID(Map<String, Set<Pair>> bio_htp, Map<String, Set<Pair>> bio, int version, Set<String> genes, Set<Pair> pairs, List<BioGenePair> goldstandard) {
         this.bio_htp = bio_htp;
-        this.bio_ltp = bio_ltp;
+        this.bio = bio;
         this.version = version;
         this.allGenes = genes;
         this.allPairs = pairs;
@@ -54,8 +54,8 @@ public class BioGRID {
         this.bio_htp = bio_htp;
     }
     
-    public void setLTPBio(Map<String, Set<Pair>> bio_ltp) {
-        this.bio_ltp = bio_ltp;
+    public void setLTPBio(Map<String, Set<Pair>> bio) {
+        this.bio = bio;
     }
 
     public void setVersion(int version) {
@@ -78,18 +78,10 @@ public class BioGRID {
         return bio_htp;
     }
     
-    public Map<String, Set<Pair>> getLTPBioGRID() {
-        return bio_ltp;
+    public Map<String, Set<Pair>> getBioGRID() {
+        return bio;
     }
     
-    public Map<String, Set<Pair>> getBioGRID() {
-        Map<String, Set<Pair>> all = new HashMap<String, Set<Pair>>();
-
-        all.putAll(bio_ltp);
-        all.putAll(bio_htp);
-        return all;
-    }
-
     public int getVersion() {
         return version;
     }
@@ -98,12 +90,8 @@ public class BioGRID {
         return bio_htp.size();
     }
     
-    public int numLTPDatasets() {
-        return bio_ltp.size();
-    }
-    
     public int numDatasets() {
-        return bio_htp.size()+bio_ltp.size();
+        return bio.size();
     }
     
 }
