@@ -16,7 +16,7 @@ Datatsets are split by PubMED identifier and those with number of interactions b
 
 <img src="https://render.githubusercontent.com/render/math?math=lls^L(E) = \ln  \left(\frac{P(L|E) /\neg P(L|E)} {P(L) /\neg P(L)} \right)">
 
-where, P(L|E) and /\neg P(L|E) represent the frequencies of linkages L observed in a dataset E between genes that are linked and not not linked in the gold standard, respectively, and, P(L) and /\neg P(L) represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
+where, $P(L|E)$ and $\neg P(L|E)$ represent the frequencies of linkages L observed in a dataset E between genes that are linked and not not linked in the gold standard, respectively, and, P(L) and /\neg P(L) represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
 
 Dataset scores were then integrated using the Lee method using the D value chosen:
 
