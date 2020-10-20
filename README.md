@@ -8,6 +8,6 @@ usage: ssnet inputfile taxid
 SSnet currently uses BioGRID data in tab2 format ()
 
 
-https://github.com/kj-intbio/ssnet/blob/master/images/integration_workflow.pdf
+<img src="https://github.com/kj-intbio/ssnet/blob/master/images/integration_workflow.pdf">
 
 
