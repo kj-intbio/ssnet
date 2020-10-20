@@ -62,7 +62,7 @@ public class Ssnet {
         li.setBio(bio);
         li.setDValue(dvalue);
         Map<Pair, Double> lls_scores = li.integrate(gs_lls);
-        iLogger.logToFile("V" + bio.getVersion() + "D"+ dvalue + "_taxon" + species + "probabilisitcFullNet.txt", lls_scores);
+        iLogger.logToFile("V" + bio.getVersion() + "D"+ dvalue + "_taxon" + species + "probabilisitc_ssnet.txt", lls_scores);
         System.out.println();
     }
     
