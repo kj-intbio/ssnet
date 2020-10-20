@@ -12,7 +12,7 @@ SSnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/do
 
 **Integration methodology**
 
-Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues^1, that calculates a log-likelihood score for each dataset:
+Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues<sup>1</sup>, that calculates a log-likelihood score for each dataset:
 
 <img src="https://render.githubusercontent.com/render/math?math=lls^L(E) = \ln  \left(\frac{P(L|E) /\neg P(L|E)} {P(L) /\neg P(L)} \right)">
 
@@ -28,6 +28,6 @@ The gold standard data is then scored using an iterative LTP scoring method in w
 <img src="./images/integration_workflow.png" width=70% height=70%>
 </p>
 
-LEE REFERENCE HERE
+1. LEE REFERENCE HERE
 
 
