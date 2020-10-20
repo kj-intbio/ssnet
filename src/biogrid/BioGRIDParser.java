@@ -101,7 +101,8 @@ public class BioGRIDParser {
             genePairByID.get(pair.getExp()).add(pair);
         }
 
-        Map<String, Set<Pair>> datasets = new HashMap<String, Set<Pair>>(); //the dataset names
+        Map<String, Set<Pair>> datasets_htp = new HashMap<String, Set<Pair>>(); //the dataset names
+        Map<String, Set<Pair>> datasets_ltp = new HashMap<String, Set<Pair>>(); //the dataset names
         List<BioGenePair> smalls = new ArrayList<BioGenePair>(); //the small datasets
 
         for (String id : genePairByID.keySet()) {
@@ -115,13 +116,13 @@ public class BioGRIDParser {
             if (pairs.size() >= threshold) {
                 String dsName = pairList.get(0).getInfo();
                 
-                datasets.put(dsName, pairs);
+                datasets_htp.put(dsName, pairs);
             } else {
                 smalls.addAll(pairList);
             }
         }
         
-        System.out.println("Number of htp datasets: " + datasets.size());
+        System.out.println("Number of htp datasets: " + datasets_htp.size());
 
         Map<String, List<BioGenePair>> genePairByType = new HashMap<String, List<BioGenePair>>();
         for (String type : bgd.getTypes()) {
@@ -138,11 +139,11 @@ public class BioGRIDParser {
                 for (BioGenePair pgp : pairList) {
                     pairs.add(new Pair(pgp.getOrf1(), pgp.getOrf2()));
                 }
-                datasets.put(type, pairs);
+                datasets_ltp.put(type, pairs);
             }
         }
 
-        System.out.println("Number of datasets: " + datasets.size());
+        System.out.println("Number of datasets: " + datasets_ltp.size());
 
         Set<String> allGenes = new HashSet<String>();
         for (Pair p : allPairs) { //get a list of all the genes
@@ -150,7 +151,7 @@ public class BioGRIDParser {
             allGenes.add(p.getOrf2());
         }
 
-        return new BioGRID(datasets, bgd.getVersion(), allGenes, allPairs);
+        return new BioGRID(datasets_htp, datasets_ltp, bgd.getVersion(), allGenes, allPairs, smalls);
     }
 
     public void writeLogFile(BioGRID bio)
@@ -160,20 +161,18 @@ public class BioGRIDParser {
             String outFileName = "V" + bio.getVersion() + "ExtractionData.txt";
             System.out.println("writing extraction summary to " + outFileName);//summarise the extraction data
             out = new PrintWriter(new BufferedWriter(new FileWriter(outFileName)));
-            out.println("Version" + bio.getVersion() + " Extraction Data");
             out.println("Number of Datasets = " + bio.numDatasets());
 
-            for (String s : bio.getBioGRID().keySet()) {
-                out.println(s + "\t" + bio.getBioGRID().get(s).size());
+            for (String s : bio.getHTPBioGRID().keySet()) {
+                out.println(s + "\t" + bio.getHTPBioGRID().get(s).size());
+            }
+            for (String s : bio.getLTPBioGRID().keySet()) {
+                out.println(s + "\t" + bio.getLTPBioGRID().get(s).size());
             }
 
-            int total = 0;
-            for (String s : bio.getBioGRID().keySet()) {
-                total = total + bio.getBioGRID().get(s).size();
-            }
             out.println();
             out.println("There are " + bio.getPairs().size() + " unique pairs");
-            out.println("Total pairs = " + total);
+
             out.flush();
             out.close();
         } finally {

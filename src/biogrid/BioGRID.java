@@ -20,7 +20,7 @@ public class BioGRID {
     private Set<Pair> allPairs;
     private List<BioGenePair> goldstandard;
 
-    public BioGRID(Map<String, Set<Pair>> bio_htp, Map<String, Set<Pair>> bio_ltp, int version, Set<String> genes, Set<Pair> pairs) {
+    public BioGRID(Map<String, Set<Pair>> bio_htp, Map<String, Set<Pair>> bio_ltp, int version, Set<String> genes, Set<Pair> pairs, List<BioGenePair> goldstandard) {
         this.bio_htp = bio_htp;
         this.bio_ltp = bio_ltp;
         this.version = version;
@@ -81,6 +81,14 @@ public class BioGRID {
     public Map<String, Set<Pair>> getLTPBioGRID() {
         return bio_ltp;
     }
+    
+    public Map<String, Set<Pair>> getBioGRID() {
+        Map<String, Set<Pair>> all = new HashMap<String, Set<Pair>>();
+
+        all.putAll(bio_ltp);
+        all.putAll(bio_htp);
+        return all;
+    }
 
     public int getVersion() {
         return version;
@@ -91,7 +99,11 @@ public class BioGRID {
     }
     
     public int numLTPDatasets() {
-        return bio_htp.size();
+        return bio_ltp.size();
+    }
+    
+    public int numDatasets() {
+        return bio_htp.size()+bio_ltp.size();
     }
     
 }

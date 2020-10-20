@@ -45,10 +45,10 @@ public class LlsScore implements DataSetScorer {
         Map<String, Double> dataSetToScore = new HashMap<String, Double>();
         double highScore = 0.0;//to find the highest score
 
-        for (String dataSet : bio.getBioGRID().keySet()) {//iterate through the datasets
+        for (String dataSet : bio.getHTPBioGRID().keySet()) {//iterate through the datasets
 
             System.out.println("calculating for " + dataSet + "...");
-            Double lls = new NonParaLLS().logScore(gs, bio.getBioGRID().get(dataSet));//score
+            Double lls = new NonParaLLS().logScore(gs, bio.getHTPBioGRID().get(dataSet));//score
 
             if (lls > 0 && !lls.isNaN())
             {

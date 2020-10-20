@@ -38,12 +38,12 @@ public class Ssnet {
       
         System.out.println("creating ltp gold standard...");
         GSParser gs_parser = new GSParser();
-        GoldStandard gs_aoesha = gs_parser.parseSmalls(bio.getGoldstandard());
+        GoldStandard gs = gs_parser.parseSmalls(bio.getGoldstandard());
         System.out.println();
               
         System.out.println("Confidence scoring HTP only against ltp...");
         LlsScore llsScore = new LlsScore();
-        llsScore.setKegg(gs_aoesha);
+        llsScore.setGs(gs);
         Map<String, Double> lls_htp_gs = llsScore.scoredDataSet(bio);
         System.out.println();
         
@@ -52,7 +52,7 @@ public class Ssnet {
         gs_lls = llsScore.scoredGoldStandard(bio.getGoldstandard(), bio.getVersion(), lls_htp_gs);
         System.out.println();        
         System.out.println("performing weighted integration with gs...");
-        LeeIntegration li = new LeeIntegration();
+        Integration li = new Integration();
         li.setBio(bio);
         li.setDValue(dvalue);
         Map<Pair, Double> lls_scores = li.integrate(gs_lls);
