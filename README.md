@@ -24,7 +24,9 @@ The gold standard data is then scored using an iterative LTP scoring method in w
  
  where <img src="https://render.githubusercontent.com/render/math?math=$L_{1}$"> is the highest confidence score and <img src="https://render.githubusercontent.com/render/math?math=$L_{n}$"> the lowest confidence score of a set of <img src="https://render.githubusercontent.com/render/math?math=$n$"> datasets.
 
-![Workflow](/images/integration_workflow.png)
+<p align="center">
+<img src="./images/integration_workflow.png" width=70% height=70%>
+</p>
 
 LEE REFERENCE HERE
 
