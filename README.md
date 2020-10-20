@@ -1,14 +1,22 @@
 # ssnet
-single source integration of probabilistic functional integrated networks
+Single source integration of probabilistic functional integrated networks
 
-ssnet takes a BioGRID file of functional interaction data for a species and produces a probabilitistic functional integrated network using the method of:
+Ssnet takes a BioGRID file of functional interaction data for a species and produces a probabilitistic functional integrated network using the method of:
 
 Aoesha Alsobhe, James Skelton, Matthew Pocock, Simon J. Cockell, Anil Wipat1 and Katherine James (2020) Integration of probabilistic functional integrated networks from a single database source. 
 
-
 Usage: ``` java -jar "ssnet.jar" inputfile d-value taxid htp_threshold ```
 
-SSnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/doku.php/downloads)
+Input file: ssnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/doku.php/downloads)
+
+Taxid, for example:
+* Yeast 559292 (4932 up to BioGRID V72)
+* Human 9606
+* Mouse 10090
+
+D-value: value for weighted sum, 1.0 gives a sum, higher values upweight datasets based on LLS confidence score
+
+HTP threshold: Threshold to split BioGRID data into high-throughput and low-throughput studies.
 
 **Integration methodology**
 
