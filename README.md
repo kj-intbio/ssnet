@@ -3,10 +3,24 @@ single source integration of probabilistic functional integrated networks
 
 ssnet takes a BioGRID file of functional interaction data for a species and produces a probabilitistic functional integrated network using the method of:
 
-usage: ssnet inputfile taxid
+Aoesha Alsobhe, James Skelton, Matthew Pocock, Simon J. Cockell, Anil Wipat1 and Katherine James (2020) Integration of probabilistic functional integrated networks from a single database source. 
 
-SSnet currently uses BioGRID data in tab2 format ()
 
+Usage: ssnet inputfile d-value taxid htp_threshold
+
+SSnet currently uses BioGRID data in tab2 format (https://wiki.thebiogrid.org/doku.php/downloads)
+
+**Integration methodology**
+
+Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues \cite{Lee2004}, that calculates a log-likelihood score for each dataset:
+
+\begin{equation}\label{equ:LLS}
+ lls^L(E) = \ln  \left(\frac{P(L|E) /\neg P(L|E)} {P(L) /\neg P(L)} \right)
+ \end{equation}
+
+where, \begin{large}$P(L|E)$\end{large} and \begin{large}$\neg P(L|E)$\end{large} represent the frequencies of linkages \begin{large}$L$\end{large} observed in a dataset \begin{large}$E$\end{large} between genes that are linked and not not linked in the gold standard, respectively, and, \begin{large}$P(L)$\end{large} and \begin{large}$\neg P(L)$\end{large} represent the prior expectation of linkages between genes that are linked and not not linked in the gold standard, respectively.
+
+Dataset scores were then integrated using the Lee method \cite{Lee2004} with a \textit{D}-value of 1.0:
 
 ![Workflow](/images/integration_workflow.png)
 
