@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package biogrid;
 
 import java.io.*;
@@ -10,7 +5,17 @@ import java.util.*;
 
 /**
  *
- * @author CWMS3
+ * Parser that takes a BioGRID file and extracts the datasets.
+ * The data is first split by pubmed id, those sets with htp_threshold
+ * interactions are then grouped by experiment type.
+ * An output file is produced summarising the extraction data
+ * 
+ * Author: Katherine James  
+ * Author Matthew Pocock
+ * Commenced: 29/09/07  Last edited: 20/11/09 
+ * 
+ * @author CWMS3 
+ * Last edited 21/10/20
  */
 public class BioGRIDParser {
     
@@ -47,7 +52,7 @@ public class BioGRIDParser {
         Set<String> pubmeds = new HashSet<String>();
 
         while ((line = in.readLine()) != null) {
-            //System.out.println("line");
+
             String[] splitline = line.split("\t");
             String orf1 = splitline[7];//for yeast use 0 and 1, or 2/3/ 7/8 later from 66
             String orf2 = splitline[8];
@@ -63,9 +68,7 @@ public class BioGRIDParser {
             if (org1.equals(species) && org2.equals(species)) {//check if the data is for the correct organism
 
                 BioGenePair tmp = new BioGenePair(orf1, orf2, author, exp, correctName);
-
                 ids.add(exp); // all pubmed ids
-
                 types.add(correctName); // all evidence types
 
                 if (!orf1.equals(orf2)) //check for self interactions
@@ -75,7 +78,6 @@ public class BioGRIDParser {
             }
 
         }//now all the data is in lines
-
 
         BioGRIDData bgd = new BioGRIDData();
         bgd.setIds(ids);
@@ -168,7 +170,6 @@ public class BioGRIDParser {
                 out.println(s + "\t" + bio.getBioGRID().get(s).size());
             }
             
-
             out.println();
             out.println("There are " + bio.getPairs().size() + " unique pairs");
 

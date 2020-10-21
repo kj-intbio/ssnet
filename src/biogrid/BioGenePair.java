@@ -1,13 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package biogrid;
 
 /**
- *
+ * Simple class which contains information about a single
+ * BioGRID interaction: orf1, orf2, author, pubmed and type
+ * 
+ * Author: Katherine James
+ * Author Matthew Pocock
+ * Commenced: 26/09/07 Last edited: 16/03/09 
+ * 
  * @author CWMS3
+ * Last edited: 21/10/20
  */
 public class BioGenePair {
     

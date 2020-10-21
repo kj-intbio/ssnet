@@ -1,16 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package biogrid;
-
-import java.util.*;
 
 /**
  *
- * @author CWMS3
+ * Simple class which stores the contains of a BioGRID file as a list of
+ * datasets with associated version number. Also stores a list of all genes and a
+ * list of all pairs, and the gold standard for ssNET
+ *
+ * Author: Katherine James
+ * Author Matthew Pocock
+ * Commenced: 30/09/07 Last edited: 16/03/09
+ *
+ * @author CWMS3 Last edited 20/10/20
  */
+import java.util.*;
+
 public class BioGRID {
     
     private Map<String, Set<Pair>> bio_htp;

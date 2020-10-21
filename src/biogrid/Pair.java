@@ -1,13 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package biogrid;
 
 /**
- *
+ * Simple Pair Class which can either be a pair of
+ * orfs or a dataset to score pair
+ * 
+ * Author: Olly Shaw
+ * Author: Katherine James
+ * Author Matthew Pocock
+ * Commenced: 07/08/07 Last edited: 16/03/08 
+ * 
  * @author CWMS3
+ * Last edited 21/10/20
  */
 public class Pair {
     
@@ -29,8 +32,6 @@ public class Pair {
         this.score = score;
     }
     //END OF DATASET SCORE CONSTRUCTOR
-
-
 
     public String getDataset() {
         return dataset;

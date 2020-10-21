@@ -6,11 +6,16 @@
 package biogrid;
 
 import java.util.*;
-
 /**
- *
+ * Created by IntelliJ IDEA.
+ * User: nmrp3
+ * Date: 07-Dec-2009
+ * Time: 16:43:07
+ * 
  * @author CWMS3
+ * Last edited: 20/10/20
  */
+
 public class BioGRIDData {
     
     private int version = 0;
