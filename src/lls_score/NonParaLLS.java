@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lls_score;
 
 import biogrid.*;
@@ -14,14 +9,15 @@ import java.util.Set;
 |                                                                  |
 |                        Author: Olly Shaw                         |
 |                        Author: Jen Hallinan                      |
-|                      Author: Katherine James                     |
+|                      Author: Katherine James
+|                       Author: Matthew Pocock
 |                       Commenced: 07/08/07                        |
-|                      Last edited: 15/07/20                       |
+|                      Last edited: 21/10/20                       |
 \*----------------------------------------------------------------*/
 public class NonParaLLS {
 
     //**********Method to score the dataset****************
-    //this is olly lls code adapted for the pipeline
+    //this is olly's lls code adapted for the pipeline
     public double logScore(GoldStandard gs, Set<Pair> data) {
 
 
@@ -29,7 +25,7 @@ public class NonParaLLS {
         Set<Pair> gsPairs = gs.getPositive();
 
         int truePosData = pairsInGoldStandard(gsPairs, data);//true positives
-        int totalGenesGs = gs.getGenes().size();//size of kegg
+        int totalGenesGs = gs.getGenes().size();//size of gs
         int truePosGs = gsPairs.size();//number pos pairs
         int possiblePairsGs = (totalGenesGs * (totalGenesGs - 1)) / 2;
         int trueNegGs = gs.numberOfNegatives();//number negative pairs

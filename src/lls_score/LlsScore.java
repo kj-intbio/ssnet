@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lls_score;
 
 import biogrid.*;
@@ -17,9 +12,10 @@ import java.util.*;
 |               Class which takes the gold standard                    |
 |      scores each datasets confidence using the Lee LLS method        |
 |																	   |
-|                    Author: Katherine James						   |
+|                    Author: Katherine James
+|                    Author: Matthew Pocock
 |                      Commenced: 28/01/08                             |
-|                    Last Edited: 15/07/20                             |
+|                    Last Edited: 21/10/20                             |
 \*--------------------------------------------------------------------*/
 public class LlsScore implements DataSetScorer {
 
@@ -68,14 +64,16 @@ public class LlsScore implements DataSetScorer {
 
         double finalHighScore = Math.ceil(highScore + 1);//round up the highscore
         System.out.println("scoring done");
-        System.out.println("highest score is " + highScore);
-        System.out.println("high score to be used " + finalHighScore);
+        //System.out.println("highest score is " + highScore);
+        //System.out.println("high score to be used " + finalHighScore);
+        //ONLY NEEDED FOR EXTERNAL GOLD STANDARD SCORING
 
         //replace Infinity scores with finalHighScore
         for(String dataSet: new HashSet<String>(dataSetToScore.keySet()))
         {
             if (dataSetToScore.get(dataSet).isInfinite())
             {
+                 System.out.println("Infinity score for " + dataSet+ " set to " + highScore);
                  dataSetToScore.put(dataSet, finalHighScore);
             }
         }
@@ -189,14 +187,16 @@ public class LlsScore implements DataSetScorer {
 
         double finalHighScore = Math.ceil(highScore + 1);//round up the highscore
         System.out.println("scoring done");
-        System.out.println("highest score is " + highScore);
-        System.out.println("high score to be used " + finalHighScore);
+        //System.out.println("highest score is " + highScore);
+        //System.out.println("high score to be used " + finalHighScore);
+        //ONLY NEEDED FOR EXTERNAL GOLD STANDARD SCORING
 
         //replace Infinity scores with finalHighScore
         for(String dataSet: new HashSet<String>(gsToScore.keySet()))
         {
             if (gsToScore.get(dataSet).isInfinite())
             {
+                 System.out.println("Infinity score for " + dataSet+ " set to " + highScore);
                  gsToScore.put(dataSet, finalHighScore);
             }
         }
@@ -204,7 +204,6 @@ public class LlsScore implements DataSetScorer {
         String outFile = "V" + version + "GSLLS.txt";
         System.out.println("writing to " + outFile);
 
-        //write to file
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(outFile));
 
