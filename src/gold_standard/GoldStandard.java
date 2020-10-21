@@ -20,11 +20,6 @@ public class GoldStandard {
         this.genes = genes;
     }
 
-    public GoldStandard(Set<Pair> pos, Set<String> genes, Set<String> diseases) {
-        this.positive = pos;
-        this.genes = genes;
-    }
-
     public int numberOfNegatives() {
         int gs = genes.size();
         int ps = positive.size();
