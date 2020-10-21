@@ -14,11 +14,15 @@ Taxid, for example:
 * Human 9606
 * Mouse 10090
 
-D-value: value for weighted sum, 1.0 gives a sum, higher values upweight datasets based on LLS confidence score
+D-value: value for weighted sum, 1.0 gives a sum, higher values upweight datasets based on LLS confidence score (see below)
 
 HTP threshold: Threshold to split BioGRID data into high-throughput and low-throughput studies.
 
 **Integration methodology**
+
+<p align="center">
+<img src="./images/integration_workflow.png" width=60%>
+</p>
 
 Datatsets are split by PubMED identifier and those with number of interactions below the htp_threshold are considered low-throughtput gold standard datasets. Confidence scores were calculated using the methods developed by Lee and colleagues<sup>1</sup>, that calculates a log-likelihood score for each dataset:
 
@@ -32,10 +36,11 @@ The gold standard data is then scored using an iterative LTP scoring method in w
  
  where <img src="https://render.githubusercontent.com/render/math?math=$L_{1}$"> is the highest confidence score and <img src="https://render.githubusercontent.com/render/math?math=$L_{n}$"> the lowest confidence score of a set of <img src="https://render.githubusercontent.com/render/math?math=$n$"> datasets.
 
+
 <p align="center">
-<img src="./images/integration_workflow.png" width=70% height=70%>
+<img src="./images/Dvalue.png" width=50%>
 </p>
 
-1. LEE REFERENCE HERE
+1. Lee I, Date SV, Adai AT, Marcotte EM. A probabilistic functional network of yeast genes. Science. 2004 Nov 26;306(5701):1555-8. doi: 10.1126/science.1099511. PMID: 15567862.
 
 
