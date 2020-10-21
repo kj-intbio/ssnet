@@ -47,7 +47,7 @@ The gold standard data is then scored using an iterative LTP scoring method in w
 
 The main output is a tab delimited network file in the format ```NodeA NodeB Score```, which can be uploaded in Cyctoscape or other network visualisation software. 
 
-The program also outputs data extraction details and loglikelihood scores HTP and LTP datasets. 
+The package also outputs dataset extraction details and loglikelihood scores HTP and LTP datasets. 
 
 1. Lee I, Date SV, Adai AT, Marcotte EM. A probabilistic functional network of yeast genes. Science. 2004 Nov 26;306(5701):1555-8. doi: 10.1126/science.1099511. PMID: 15567862.
 
