@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gold_standard;
 
 import biogrid.Pair;
 import java.util.Set;
 
 /**
- * The gold standard for log likelihood scoring Consists of a positive pair
- * list, a negative pair list and a version number
+ * The gold standard for log likelihood scoring 
  *
+ * Author: Katherine James Commenced: 17/03/09  Last edited: 17/03/09 
+* 
  * @author CWMS3
+ * Edited 21/10/20
  */
 public class GoldStandard {
 
