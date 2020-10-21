@@ -3,6 +3,7 @@ package lls_score;
 import biogrid.*;
 import gold_standard.GoldStandard;
 import java.util.Set;
+
 /*----------------------------------------------------------------*\
 |                         Class NonParaLLS.java                    |
 |        	    Calculate the LSS for a dataset                |
@@ -19,7 +20,6 @@ public class NonParaLLS {
     //**********Method to score the dataset****************
     //this is olly's lls code adapted for the pipeline
     public double logScore(GoldStandard gs, Set<Pair> data) {
-
 
         //get the goldstandards
         Set<Pair> gsPairs = gs.getPositive();
@@ -62,15 +62,12 @@ public class NonParaLLS {
         return counter;
     }
 
-    private static int pairsNotInGoldStandard(GoldStandard gs, Set<Pair> data)
-    {
+    private static int pairsNotInGoldStandard(GoldStandard gs, Set<Pair> data) {
         int counter = 0;
-        for(Pair pair : data)
-        {
-            if(!gs.getPositive().contains(pair)
-                && gs.getGenes().contains(pair.getOrf1())
-                && gs.getGenes().contains(pair.getOrf2()))
-            {
+        for (Pair pair : data) {
+            if (!gs.getPositive().contains(pair)
+                    && gs.getGenes().contains(pair.getOrf1())
+                    && gs.getGenes().contains(pair.getOrf2())) {
                 counter++;
             }
         }

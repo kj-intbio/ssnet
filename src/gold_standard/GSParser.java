@@ -5,17 +5,14 @@ import java.util.*;
 import biogrid.*;
 
 /**
- * Class to extract create the gold standard for
- * ssNET integration
- * 
- * Based on KeggParser (Katherine James & Matthew Pocock)
- * and BioSystemsParser (Katherine James) 
- * 
- * @author CWMS3
- * Edited 21/10/20
+ * Class to extract create the gold standard for ssNET integration
+ *
+ * Based on KeggParser (Katherine James & Matthew Pocock) and BioSystemsParser
+ * (Katherine James)
+ *
+ * @author CWMS3 Edited 21/10/20
  */
 public class GSParser {
-
 
     public GoldStandard parseSmalls(List<BioGenePair> smalls) throws IOException {
 

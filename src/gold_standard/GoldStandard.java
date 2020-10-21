@@ -4,12 +4,11 @@ import biogrid.Pair;
 import java.util.Set;
 
 /**
- * The gold standard for log likelihood scoring 
+ * The gold standard for log likelihood scoring
  *
- * Author: Katherine James Commenced: 17/03/09  Last edited: 17/03/09 
-* 
- * @author CWMS3
- * Edited 21/10/20
+ * Author: Katherine James Commenced: 17/03/09 Last edited: 17/03/09
+ *
+ * @author CWMS3 Edited 21/10/20
  */
 public class GoldStandard {
 

@@ -46,8 +46,7 @@ public class LlsScore implements DataSetScorer {
             System.out.println("calculating for " + dataSet + "...");
             Double lls = new NonParaLLS().logScore(gs, bio.getHTPBioGRID().get(dataSet));//score
 
-            if (lls > 0 && !lls.isNaN())
-            {
+            if (lls > 0 && !lls.isNaN()) {
                 System.out.println(lls + " is the LLS for " + dataSet);
                 //write to file
                 dataSetToScore.put(dataSet, lls);
@@ -69,12 +68,10 @@ public class LlsScore implements DataSetScorer {
         //ONLY NEEDED FOR EXTERNAL GOLD STANDARD SCORING
 
         //replace Infinity scores with finalHighScore
-        for(String dataSet: new HashSet<String>(dataSetToScore.keySet()))
-        {
-            if (dataSetToScore.get(dataSet).isInfinite())
-            {
-                 System.out.println("Infinity score for " + dataSet+ " set to " + highScore);
-                 dataSetToScore.put(dataSet, finalHighScore);
+        for (String dataSet : new HashSet<String>(dataSetToScore.keySet())) {
+            if (dataSetToScore.get(dataSet).isInfinite()) {
+                System.out.println("Infinity score for " + dataSet + " set to " + highScore);
+                dataSetToScore.put(dataSet, finalHighScore);
             }
         }
 
@@ -95,22 +92,20 @@ public class LlsScore implements DataSetScorer {
             System.out.println("Somethings gone horribly wrong, check your file path");
         }
         return dataSetToScore;//the confidence scores
-    //END OF GETSCORES
+        //END OF GETSCORES
     }
-    
-    
-    
+
     public Map<String, Double> scoredGoldStandard(List<BioGenePair> gs, int version, Map<String, Double> htp_lls) {
-    
+
         Map<String, Double> gsToScore = new HashMap<String, Double>();
         double highScore = 0.0;
-        
+
         Set<String> dataTypes = new HashSet<String>();
-        
-        for(BioGenePair p: gs){
+
+        for (BioGenePair p : gs) {
             dataTypes.add(p.getType());
         }
-        
+
         Map<String, List<BioGenePair>> genePairByType = new HashMap<String, List<BioGenePair>>();
         for (String type : dataTypes) {
             genePairByType.put(type, new ArrayList<BioGenePair>());
@@ -132,45 +127,43 @@ public class LlsScore implements DataSetScorer {
         }
 
         System.out.println("Number of gold standard datasets: " + datasets.size());
-        
+
         //now we need to score them one by one
-        
-        for(String s: datasets.keySet()){
-                    
+        for (String s : datasets.keySet()) {
+
             System.out.println("Scoring dataset: " + s);
             Set<Pair> gs_dataset = new HashSet<Pair>();
-            
+
             gs_dataset = datasets.get(s);
 
-            Set<Pair> gs_goldstandard  = new HashSet<Pair>();
-            
-            for(String t: datasets.keySet()){
-                if(!s.equals(t)){
-                   gs_goldstandard.addAll(datasets.get(t));
+            Set<Pair> gs_goldstandard = new HashSet<Pair>();
+
+            for (String t : datasets.keySet()) {
+                if (!s.equals(t)) {
+                    gs_goldstandard.addAll(datasets.get(t));
                 }
-                
+
             }
-            
+
             Set<String> allGenes = new HashSet<String>();//all the possible genes
             Set<Pair> posPairs = new HashSet<Pair>();
-        
-        for (Pair bgp : gs_goldstandard) {
-            allGenes.add(bgp.getOrf1());
-            allGenes.add(bgp.getOrf2());
-            
-            posPairs.add(new Pair(bgp.getOrf1(), bgp.getOrf2()));
-        }
 
-        int numGenes = allGenes.size();
-        System.out.println("number of gs genes " + numGenes);
-        System.out.println("actual number of gs pairs is " + posPairs.size());
+            for (Pair bgp : gs_goldstandard) {
+                allGenes.add(bgp.getOrf1());
+                allGenes.add(bgp.getOrf2());
 
-        GoldStandard temp_GS = new GoldStandard(posPairs, allGenes);
-          
-        Double lls = new NonParaLLS().logScore(temp_GS, gs_dataset);//score
+                posPairs.add(new Pair(bgp.getOrf1(), bgp.getOrf2()));
+            }
 
-            if (lls > 0 && !lls.isNaN())
-            {
+            int numGenes = allGenes.size();
+            System.out.println("number of gs genes " + numGenes);
+            System.out.println("actual number of gs pairs is " + posPairs.size());
+
+            GoldStandard temp_GS = new GoldStandard(posPairs, allGenes);
+
+            Double lls = new NonParaLLS().logScore(temp_GS, gs_dataset);//score
+
+            if (lls > 0 && !lls.isNaN()) {
                 System.out.println(lls + " is the LLS for " + s);
                 //write to file
                 gsToScore.put(s, lls);
@@ -192,12 +185,10 @@ public class LlsScore implements DataSetScorer {
         //ONLY NEEDED FOR EXTERNAL GOLD STANDARD SCORING
 
         //replace Infinity scores with finalHighScore
-        for(String dataSet: new HashSet<String>(gsToScore.keySet()))
-        {
-            if (gsToScore.get(dataSet).isInfinite())
-            {
-                 System.out.println("Infinity score for " + dataSet+ " set to " + highScore);
-                 gsToScore.put(dataSet, finalHighScore);
+        for (String dataSet : new HashSet<String>(gsToScore.keySet())) {
+            if (gsToScore.get(dataSet).isInfinite()) {
+                System.out.println("Infinity score for " + dataSet + " set to " + highScore);
+                gsToScore.put(dataSet, finalHighScore);
             }
         }
 
@@ -216,11 +207,9 @@ public class LlsScore implements DataSetScorer {
             ex.printStackTrace();
             System.out.println("Somethings gone horribly wrong, check your file path");
         }
-          
+
         gsToScore.putAll(htp_lls);
-       
+
         return gsToScore;
     }
 }
-
-
