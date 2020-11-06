@@ -14,9 +14,9 @@ Taxid, for example:
 * Human 9606
 * Mouse 10090
 
-D-value: value for weighted sum, 1.0 gives a sum, higher values upweight datasets based on LLS confidence score (see below)
+D-value: value for weighted sum, 1.0 gives a sum, higher values upweight datasets based on LLS confidence score (see below). Default 1.0.
 
-HTP threshold: Threshold to split BioGRID data into high-throughput and low-throughput studies.
+HTP threshold: Threshold to split BioGRID data into high-throughput and low-throughput studies. Default 100.
 
 **Integration methodology**
 
