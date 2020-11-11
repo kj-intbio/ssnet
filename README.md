@@ -53,6 +53,10 @@ Example ssNET outputs for six species can be found at: https://figshare.com/proj
 
 1. Lee I, Date SV, Adai AT, Marcotte EM. A probabilistic functional network of yeast genes. Science. 2004 Nov 26;306(5701):1555-8. doi: 10.1126/science.1099511. PMID: 15567862.
 
+**License**
+
+GPL v3
+
 <p align="center">
 <img src="./images/net.png" width=100%>
 </p>
