@@ -47,7 +47,7 @@ The gold standard data is then scored using an iterative LTP scoring method in w
 
 The main output is a tab delimited network file in the format ```NodeA NodeB Score```, which can be uploaded in Cyctoscape or other network visualisation software. 
 
-The package also outputs dataset extraction details and loglikelihood scores HTP and LTP datasets. 
+The package also outputs dataset extraction details and loglikelihood scores for HTP and LTP datasets. 
 
 Example ssNET outputs for six species can be found at: https://figshare.com/projects/ssNET/88037
 
