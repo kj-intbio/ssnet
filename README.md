@@ -3,7 +3,7 @@ Single source integration of probabilistic functional integrated networks
 
 Ssnet takes a BioGRID file of functional interaction data for a species and produces a probabilitistic functional integrated network using the method of:
 
-Integration of probabilistic functional integrated networks from a single database source. (biorxiv HERE)
+Integration of probabilistic functional networks without an external Gold Standard. (biorxiv HERE)
 
 Usage: ``` java -jar "ssnet.jar" inputfile d-value taxid htp_threshold ```
 
@@ -49,7 +49,7 @@ The main output is a tab delimited network file in the format ```NodeA NodeB Sco
 
 The package also outputs dataset extraction details and loglikelihood scores for HTP and LTP datasets. 
 
-Example ssNET outputs for six species can be found at: https://figshare.com/projects/ssNET/88037
+Example ssNET outputs for yeast can be found at: https://figshare.com/projects/Yeast_ssNet/114366
 
 1. Lee I, Date SV, Adai AT, Marcotte EM. A probabilistic functional network of yeast genes. Science. 2004 Nov 26;306(5701):1555-8. doi: 10.1126/science.1099511. PMID: 15567862.
 
