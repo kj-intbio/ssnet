@@ -3,7 +3,7 @@ Single source integration of probabilistic functional integrated networks
 
 Ssnet takes a BioGRID file of functional interaction data for a species and produces a probabilitistic functional integrated network using the method of:
 
-Integration of probabilistic functional networks without an external Gold Standard. (biorxiv HERE)
+Integration of probabilistic functional networks without an external Gold Standard. (https://biorxiv.org/cgi/content/short/2021.10.01.462727v1)
 
 Usage: ``` java -jar "ssnet.jar" inputfile d-value taxid htp_threshold ```
 
