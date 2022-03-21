@@ -41,7 +41,9 @@ The gold standard data is then scored using an iterative LTP scoring method in w
 <img src="./images/Dvalue.png" width=40%>
 </p>
 
+**Adding other datasets**
 
+The methodology allows data other than BioGRID to be added to the integration, for instance an unpublished dataset or data from another source. These data can be appended to the BioGRID file prior to integration - specifically to the gene interactor columns, species, experimental type, and pubmed id (where unpublished a token number may be used). Experimental type may be classified using BioGRID schema (https://wiki.thebiogrid.org/doku.php/experimental_systems), or another type eg Co-expression.
 
 **Outputs**
 
